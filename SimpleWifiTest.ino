@@ -13,6 +13,10 @@ void setup(){
     Serial.begin(115200);
     delay(500);
     Serial.println("*********************** SETUP START ***********************");
+
+    // See solution there: https://github.com/espressif/arduino-esp32/issues/2501
+    WiFi.persistent(false); // Disable flash record, very important fix!!
+        
     WiFi.begin(SECRET_SSID_DEFAULT, SECRET_PASSWORD_DEFAULT);
     // delay(3000); // Wait 3 Seconds, WL_DISCONNECTED is present until new connect!
 
