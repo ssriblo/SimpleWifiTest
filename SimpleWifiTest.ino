@@ -3,10 +3,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-// #define SECRET_SSID_DEFAULT       ""
-// #define SECRET_PASSWORD_DEFAULT   "" 
-#define SECRET_SSID_DEFAULT       "esp32ex-default"
-#define SECRET_PASSWORD_DEFAULT   "65.48.72.125-ELIF" 
+#define SECRET_SSID_DEFAULT       ""
+#define SECRET_PASSWORD_DEFAULT   "" 
 
 wl_status_t wifiStatus;
 String wifiTag[] = {"WL_IDLE_STATUS", "WL_NO_SSID_AVAIL", "WL_SCAN_COMPLETED", "WL_CONNECTED", "WL_CONNECT_FAILED", "WL_CONNECTION_LOST", "WL_DISCONNECTED"};
@@ -15,10 +13,6 @@ void setup(){
     Serial.begin(115200);
     delay(500);
     Serial.println("*********************** SETUP START ***********************");
-
-    // See solution there: https://github.com/espressif/arduino-esp32/issues/2501
-    WiFi.persistent(false); // Disable flash record, very important fix!!
-
     WiFi.begin(SECRET_SSID_DEFAULT, SECRET_PASSWORD_DEFAULT);
     // delay(3000); // Wait 3 Seconds, WL_DISCONNECTED is present until new connect!
 
